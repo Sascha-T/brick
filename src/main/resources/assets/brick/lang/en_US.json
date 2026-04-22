@@ -1,3 +1,4 @@
 {
-  "sound.brick.brick": "Brick thrown"
+  "sound.brick.brick": "Brick thrown",
+  "sound.brick.impact": "Brick thuds"
 }
