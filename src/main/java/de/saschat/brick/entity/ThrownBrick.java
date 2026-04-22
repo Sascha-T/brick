@@ -4,10 +4,12 @@ import de.saschat.brick.Brick;
 import de.saschat.brick.item.BrickItem;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -65,8 +67,9 @@ public class ThrownBrick extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         if (level() instanceof ServerLevel level) {
+            DamageSource ds = new DamageSource(level.registryAccess().registry(Registries.DAMAGE_TYPE).get().getHolderOrThrow(Brick.STONING_DAMAGE), getOwner());
             Entity entity = entityHitResult.getEntity();
-            entity.hurt(this.damageSources().thrown(this, this.getOwner()), calculateDamage(level));
+            entity.hurt(ds, calculateDamage(level));
         }
     }
 

@@ -1,4 +1,8 @@
 {
   "sound.brick.brick": "Brick thrown",
-  "sound.brick.impact": "Brick thuds"
+  "sound.brick.impact": "Brick thuds",
+
+  "death.attack.stoning.item": "%s was stoned to death by %s using %s",
+  "death.attack.stoning.player": "%s was stoned to death whilst trying to escape %s",
+  "death.attack.stoning": "%s was stoned to death"
 }
