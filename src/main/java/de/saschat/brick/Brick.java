@@ -6,16 +6,24 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.Position;
 import net.minecraft.core.Registry;
+import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SnowballItem;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
 
 public class Brick implements ModInitializer {
     /**
@@ -31,6 +39,10 @@ public class Brick implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
+        DispenserBlock.registerBehavior(Items.BRICK, new AbstractProjectileDispenseBehavior() {
+            protected Projectile getProjectile(Level level, Position position, ItemStack itemStack) {
+                return (Projectile) Util.make(new ThrownBrick(level, position.x(), position.y(), position.z()), (brick) -> brick.setItem(itemStack));
+            }
+        });
     }
 }

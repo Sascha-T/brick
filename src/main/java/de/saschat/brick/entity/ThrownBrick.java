@@ -17,7 +17,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.DispenserBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -34,6 +36,10 @@ public class ThrownBrick extends ThrowableItemProjectile {
 
     public ThrownBrick(Level level, LivingEntity livingEntity) {
         super(Brick.BRICK, livingEntity, level);
+    }
+
+    public ThrownBrick(Level level, double x, double y, double z) {
+        super(Brick.BRICK, x, y, z, level);
     }
 
     @Override
