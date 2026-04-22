@@ -1,0 +1,10 @@
+{
+  "whip": {
+    "subtitle": "sound.brick.brick",
+    "sounds": ["brick:whip"]
+  },
+  "thud": {
+    "subtitle": "sound.brick.impact",
+    "sounds": ["brick:thud"]
+  }
+}
