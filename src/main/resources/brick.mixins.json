@@ -4,13 +4,15 @@
   "package": "de.saschat.brick.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-  ],
-  "client": [
+    "ItemsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
+  },
+  "mixinextras": {
+    "minVersion": "0.5.4"
   }
 }

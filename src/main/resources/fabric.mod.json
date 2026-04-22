@@ -10,9 +10,6 @@
   "icon": "assets/brick/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": [
-      "de.saschat.brick.client.BrickDataGenerator"
-    ],
     "client": [
       "de.saschat.brick.client.BrickClient"
     ],
