@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "brick",
+  "version": "${version}",
+  "name": "Brick",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/brick/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "de.saschat.brick.client.BrickDataGenerator"
+    ],
+    "client": [
+      "de.saschat.brick.client.BrickClient"
+    ],
+    "main": [
+      "de.saschat.brick.Brick"
+    ]
+  },
+  "mixins": [
+    "brick.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
